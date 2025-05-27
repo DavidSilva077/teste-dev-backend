@@ -6,9 +6,9 @@ API RESTful desenvolvida em Laravel para gerenciamento de usuários, candidatos 
 
 ## 🔧 Tecnologias Utilizadas
 
-- **PHP 8.2+**
-- **Laravel 10+**
-- **MySQL 8**
+- **PHP**
+- **Laravel**
+- **MySQL**
 - **Redis**
 - **Docker & Docker Compose**
 - **Sanctum (Autenticação)**
@@ -209,25 +209,48 @@ docker-compose up -d
 
 ---
 
-## 🗺️ Rotas Principais
+## 📑 Rotas da API
 
-| Método | Endpoint                               | Descrição                        |
-|--------|-----------------------------------------|-----------------------------------|
-| POST   | /register                              | Registrar usuário                |
-| POST   | /login                                 | Login                             |
-| POST   | /logout                                | Logout                            |
-| GET    | /users                                 | Listar usuários                   |
-| POST   | /users                                 | Criar usuário                     |
-| DELETE | /users/bulk-delete                     | Deleção em massa                  |
-| GET    | /jobs                                  | Listar vagas                      |
-| POST   | /jobs                                  | Criar vaga                        |
-| POST   | /jobs/{job}/subscribe/{candidate}      | Inscrever candidato em vaga       |
-| DELETE | /jobs/bulk-delete                      | Deleção em massa                  |
-| GET    | /candidates                            | Listar candidatos                 |
-| POST   | /candidates                            | Criar candidato                   |
-| DELETE | /candidates/bulk-delete                | Deleção em massa                  |
-| POST   | /import                                | Importar CSV                      |
-| GET    | /import/analysis                       | Ver análise dos dados importados  |
+### 🧑 Usuários
+
+| Método   | Endpoint                         | Descrição                     |
+|----------|-----------------------------------|-------------------------------|
+| GET      | `/api/users`                     | Listar usuários               |
+| POST     | `/api/users`                     | Criar usuário                 |
+| GET      | `/api/users/{user}`               | Detalhar usuário              |
+| PUT/PATCH| `/api/users/{user}`               | Atualizar usuário             |
+| DELETE   | `/api/users/{user}`               | Deletar usuário               |
+| POST     | `/api/users/bulk-delete`          | Deletar usuários em massa     |
+
+### 💼 Vagas (Jobs)
+
+| Método   | Endpoint                         | Descrição                                   |
+|----------|-----------------------------------|---------------------------------------------|
+| GET      | `/api/jobs`                      | Listar vagas                                |
+| POST     | `/api/jobs`                      | Criar vaga                                  |
+| GET      | `/api/jobs/{job}`                 | Detalhar vaga                               |
+| PUT/PATCH| `/api/jobs/{job}`                 | Atualizar vaga                              |
+| DELETE   | `/api/jobs/{job}`                 | Deletar vaga                                |
+| POST     | `/api/jobs/bulk-delete`           | Deletar vagas em massa                      |
+| POST     | `/api/jobs/{job}/subscribe/{candidate}` | Inscrever candidato na vaga            |
+
+### 🧑‍💻 Candidatos
+
+| Método   | Endpoint                             | Descrição                                |
+|----------|---------------------------------------|--------------------------------------------|
+| GET      | `/api/candidates`                    | Listar candidatos                         |
+| POST     | `/api/candidates`                    | Criar candidato                           |
+| GET      | `/api/candidates/{candidate}`        | Detalhar candidato                        |
+| PUT/PATCH| `/api/candidates/{candidate}`        | Atualizar candidato                       |
+| DELETE   | `/api/candidates/{candidate}`        | Deletar candidato                         |
+| POST     | `/api/candidates/bulk-delete`        | Deletar candidatos em massa               |
+
+### 📄 Importação de Dados (CSV)
+
+| Método   | Endpoint                  | Descrição                                     |
+|----------|----------------------------|-----------------------------------------------|
+| POST     | `/api/import`              | Enviar arquivo CSV para importação assíncrona |
+| GET      | `/api/import/analysis`     | Retornar análise dos dados importados         |
 
 ---
 
